@@ -56,7 +56,7 @@ jobs:
         id: release-label
         if: ${{ github.event.pull_request.merged == true }}
 
-      - uses: actions-ecosystem/action-get-latest-tag@v1
+      - uses: ari-party/action-get-latest-tag@v1
         id: get-latest-tag
         if: ${{ steps.release-label.outputs.level != null }}
 
@@ -73,8 +73,6 @@ jobs:
           tag: ${{ steps.bump-semver.outputs.new_version }}
           message: "${{ steps.bump-semver.outputs.new_version }}: PR #${{ github.event.pull_request.number }} ${{ github.event.pull_request.title }}"
 ```
-
-For a further practical example, see [.github/workflows/release.yml](.github/workflows/release.yml).
 
 ## License
 
